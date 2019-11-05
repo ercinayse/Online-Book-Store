@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using YeniProje.Models
+
+@model List<Kitap>
+
+@section body{
+    <div class="modal fade small-modal" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="small-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" data-border-top="multi">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="small-modal-label">Kitap Sil</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="mesaj"></p>
+                    <p class="hata"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger ksil">Evet</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="UpdateScreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Kitap Güncelleme</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <label style="font-weight:bold"> Kitap Adı </label>
+                        <input id="Uad" class="form-control" style="width:unset;" type="text" name="ad" />
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Yazar </label>
+                        <input id="Uyad" class="form-control" style="width:unset;" type="text" name="ad" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Fiyat </label>
+                        <input id="Ufiyat" class="form-control" style="width:unset;" type="text" name="fiyat" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Stok </label>
+                        <input id="Ustok" class="form-control" style="width:unset;" type="text" name="stok" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Yayınevi </label>
+                        <input id="Uyya" class="form-control" style="width:unset;" type="text" name="ad" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Sayfa Sayısı </label>
+                        <input id="Usayfa" class="form-control" style="width:unset;" type="text" name="sayfasayısı" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Yayın Tarihi </label>
+                        <input id="Uyayın" class="form-control" style="width:unset;" type="text" name="yayıntarihi" />
+                    </div>
+
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Kategori </label>
+                        <input id="Uktg" class="form-control" style="width:unset;" type="text" name="yayıntarihi" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" id="kGuncel" class="btn btn-danger kGuncelle" onclick="TakeVal();">Güncelle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="col-md-12">
+    <div class="block">
+        <div class="block-heading">
+            <div class="main-text h2">
+                Kitap Listesi
+            </div>
+            <div class="block-controls">
+
+                <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                <a href="/Kitap/Ekle" class="btn btn-info">Kitap Ekle</a>
+            </div>
+
+
+        </div>
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Kitap Adı</th>
+                            <th>Yazar</th>
+                            <th>Fiyat</th>
+                            <th>Stok</th>
+                            <th>Kategori Adı</th>
+                            <th>Yayınevi Adı</th>
+                            <th>Sayfa Sayısı</th>
+                            <th>Yayın Tarihi</th>
+                            <th>Fotoğraf Ekle</th>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <th>Sil</th>
+
+                            }
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (Kitap ktg in Model)
+                        {
+                            <tr>
+
+                                <td>@ktg.ad</td>
+                                <td>@ktg.Yazar.ad</td>
+                                <td>@ktg.fiyat</td>
+                                <td>@ktg.stok</td>
+                                <td>@ktg.Kategori.ad</td>
+                                <th>@ktg.Yayınevi.ad</th>
+                                <td>@ktg.sayfasayısı</td>
+                                <td>@ktg.yayıntarihi</td>
+                                <td><a class="btn btn-success" href="/Kitap/ResimEkle/@ktg.kitapID">Fotoğraf Ekle</a></td>
+
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <button class="btn btn-danger kasil" data-toggle="modal" data-target="#small-modal" data-kadi="@ktg.ad" data-id="@ktg.kitapID">Sil</button>
+
+                                    </td>
+                                }
+
+                                    <td><button class="btn btn-primary GuncelmodalAc" data-toggle="modal" data-target="#UpdateScreen" data-kadi="@ktg.ad" data-id="@ktg.kitapID" data-yazar="@ktg.Yazar.ad" data-yayınevi="@ktg.Yayınevi.ad" data-sayfasayisi="@ktg.sayfasayısı" data-fiyat="@ktg.fiyat" data-kategori="@ktg.Kategori.ad" data-stok="@ktg.stok" data-yayintarihi="@ktg.yayıntarihi">Güncelle </button></td>
+                                
+
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script>
+        $(".kasil").click(function () {
+            var KtgAdi = $(this).data("kadi");
+            $(".modal-body>p.mesaj").html(KtgAdi + " kitap silinsin mi?");
+            var id = $(this).data("id");
+            $(".ksil").data("id", id);
+        });
+
+        $(".ksil").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Kitap/Sil/" + id,
+                success: function (durum) {
+                    if (durum == "başarılı") {
+                        window.location.replace("/Kitap/Index");
+                    }
+                    else {
+                        $("modal-body>p.hata").html("Kitap silinirken bir hata oluştu!!!");
+                    }
+                }
+            });
+        });
+
+
+         $(".GuncelmodalAc").click(function () {
+            var ktgAdi = $(this).data("kadi");
+             var Aciklama1 = $(this).data("yazar");
+             var Aciklama2 = $(this).data("yayınevi");
+             var Aciklama3 = $(this).data("sayfasayisi");
+             var Aciklama4 = $(this).data("kategori");
+             var Aciklama5 = $(this).data("fiyat");
+             var Aciklama6 = $(this).data("stok");
+             var Aciklama13 = $(this).data("yayintarihi");
+
+            
+
+             $("#Uad").val(ktgAdi);
+             $("#Uyad").val(Aciklama1);
+             $("#Uyya").val(Aciklama2);
+             $("#Usayfa").val(Aciklama3);
+             $("#Uktg").val(Aciklama4);
+             $("#Ufiyat").val(Aciklama5);
+             $("#Ustok").val(Aciklama6);
+             $("#Uyayın").val(Aciklama13);
+           
+
+
+            var id = $(this).data("id");
+            var ad = $(this).data("kadi");
+            var Aciklama7 = $(this).data("yazar");
+            var Aciklama8 = $(this).data("yayınevi");
+            var Aciklama9 = $(this).data("sayfasayisi");
+            var Aciklama10 = $(this).data("kategori");
+            var Aciklama11 = $(this).data("fiyat");
+             var Aciklama12 = $(this).data("stok");
+             var Aciklama14 = $(this).data("yayintarihi");
+
+
+            $(".ktgGuncelle").data("id", id);
+            $(".ktgGuncelle").data("kadi", ad);
+             $(".ktgGuncelle").data("yazar", Aciklama7);
+             $(".ktgGuncelle").data("yayınevi", Aciklama8);
+             $(".ktgGuncelle").data("sayfasayisi", Aciklama9);
+             $(".ktgGuncelle").data("kategori", Aciklama10);
+             $(".ktgGuncelle").data("fiyat", Aciklama11);
+             $(".ktgGuncelle").data("stok", Aciklama12);
+             $(".ktgGuncelle").data("yayintarihi", Aciklama14);
+
+
+
+        });
+
+
+        function TakeVal()
+        {
+            var id = $('.kGuncelle').data("id");
+            var ad = $("#Uad").val();
+            var Aciklama1 = $("#Uyad").val();
+            var Aciklama2 = $("#Uyya").val();
+            var Aciklama3 = $("#Usayfa").val();
+            var Aciklama4 = $("#Uktg").val();
+            var Aciklama5 = $("#Ufiyat").val();
+            var Aciklama6 = $("#Ustok").val();
+            var Aciklama13 = $("#Uyayın").val();
+          
+
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Guncelle", "Kitap")", //burada controllerdaki Guncelle kısmını geçiş yapıyorum.
+                data: { id: id, ad: ad, Aciklama1: Aciklama1, Aciklama2: Aciklama2, Aciklama3: Aciklama3, Aciklama4: Aciklama4, Aciklama5: Aciklama5, Aciklama6: Aciklama6, Aciklama13: Aciklama13 },
+                success: function (durum) {
+                    if (durum == "guncellendi") {
+                        window.location.replace("/Kitap/Index");
+
+                    }
+                    else {
+                        $(".modal-body>p.hata").htm("Kitap güncelleme anında bir hata oluştu...");
+
+                    }
+                }
+
+            });
+        }
+
+    </script>
+
+}
+
+
+

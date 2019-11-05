@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+@using YeniProje.Models
+@model List<Kitap>
+
+
+<form>
+
+    <link rel="stylesheet" href="/Content2/css/bootstrap.css" />
+    <link rel="stylesheet" href="/Content2/css/style.css" />
+
+
+    <div class="box">
+        <div class="container">
+            <div class="tesla-carousel" data-tesla-plugin="carousel" data-tesla-container=".tesla-carousel-items" data-tesla-item=">div" data-tesla-autoplay="false" data-tesla-rotate="false">
+                <div class="site-title">
+                    <ul class="wrapper-arrows">
+                        <li><i class="icon-517 prev" title="left arrow"></i></li>
+                        <li><i class="icon-501 next" title="right arrow"></i></li>
+                    </ul>
+                    <div class="site-inside"><span>Ürünler</span></div>
+                </div>
+                <div class="row">
+                    <div class="tesla-carousel-items">
+                        @foreach (Kitap ktp in Model)
+                        {
+                            <div class="col-md-3 col-xs-6">
+                                <div class="product">
+                                    <div class="product-cover">
+                                        <span class="product-action">
+
+                                        </span>
+                                        <div class="product-cover-hover"><span><a href="/Kitap/KitapDetay/?id=@ktp.kitapID &adi=@ktp.ad">Görüntüle</a></span></div>
+                                        @if (ktp.Resim != null)
+                                        {
+                                            <img src="@ktp.Resim.FirstOrDefault().OrtaYol" alt="product name" />
+
+                                        }
+
+                                    </div>
+                                    <div class="product-details">
+                                        <h1><a href="/Kitap/KitapDetay">@ktp.ad</a></h1>
+                                        <p>@ktp.Kategori.ad</p>
+                                        <div class="product-price">
+                                            <a href="#" data-id="@ktp.kitapID" class="sepeteAt">
+                                                <i class="icon-257" title="add to cart"></i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="/Content2/js/modernizr.custom.63321.js" type="text/javascript"></script>
+    <script src="/Content2/js/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="/Content2/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/Content2/js/bootstrap.js" type="text/javascript"></script>
+    <script src="/Content2/js/placeholder.js" type="text/javascript"></script>
+    <script src="/Content2/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <script src="/Content2/js/masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="/Content2/js/jquery.swipebox.min.js" type="text/javascript"></script>
+    <script src="/Content2/js/farbtastic/farbtastic.js" type="text/javascript"></script>
+    <script src="/Content2/js/options.js" type="text/javascript"></script>
+    <script src="/Content2/js/plugins.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="/Content2/https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="/Content2/https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- ======================================================================
+                                    END SCRIPTS
+    ======================================================================= -->
+
+</form>
+
+@section script{
+    <script>
+        $(".sepeteAt").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Kitap/SepeteAt/" + id,
+                success: function () {
+                    alert("Ürün sepete eklendi.");
+                },
+                error: function () {
+                    alert("Ürün sepete eklenirken hata oluştu.")
+                }
+            });
+        });
+    </script>
+
+
+
+}

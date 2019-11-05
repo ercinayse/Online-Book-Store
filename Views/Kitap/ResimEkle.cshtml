@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ResimEkle";
+}
+
+<form action="/Kitap/ResimEkle" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="UId" value="@Model"/>
+    <div class="form-group">
+        <label class="control-label col-md-3">Kitap Fotoğrafı</label>
+        <div class="controls col-md-9">
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <span class="btn btn-white btn-file">
+                    <span class="fileupload-new"><i class="icon-paper-clip"></i> Fotoğraf Seç </span>
+                    
+                    <input type="file" name="fileUpload" class="default" />
+                </span>
+                <span class="fileupload-preview" style="margin-left:5px;"></span>
+                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none; margin-left:15px;"></a>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <input type="submit" style="margin-left:350px" class="btn btn-success" name="name" value="Kaydet"/>
+</form>
+  

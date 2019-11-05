@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "Kategori";
+}
+
+@using YeniProje.Models
+
+@model List<Kategori>
+
+@section body{
+    <div class="modal fade small-modal" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="small-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" data-border-top="multi">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="small-modal-label">Kategori Sil</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="mesaj"></p>
+                    <p class="hata"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger ksil">Evet</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="UpdateScreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Kategori Güncelleme</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <label style="font-weight:bold"> Kategori Adı </label>
+                        <input id="Uad" class="form-control" style="width:unset;" type="text" name="ad" />
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold"> Açıklama </label>
+                        <input id="Uaciklama" class="form-control" style="width:unset;" type="text" name="aciklama" />
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" id="ktgGuncel" class="btn btn-danger ktgGuncelle" onclick="TakeVal();">Güncelle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="col-md-12">
+    <div class="block">
+        <div class="block-heading">
+            <div class="main-text h2">
+                Kategori Listesi
+            </div>
+            <div class="block-controls">
+
+                <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                <a href="/Kategori/Ekle" class="btn btn-info">Kategori Ekle</a>
+            </div>
+
+
+        </div>
+        <div class="block-content-outer">
+            <div class="block-content-inner">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Kategori Adı</th>
+                            <th>Açıklama</th>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            }
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (Kategori ktg in Model)
+                        {
+                            <tr>
+
+                                <td>@ktg.ad</td>
+                                <td>@ktg.aciklama</td>
+
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>
+                                        <button class="btn btn-danger ktgsil" data-toggle="modal" data-target="#small-modal" data-ktgadi="@ktg.ad" data-id="@ktg.kategoriID">Sil</button>
+
+                                    </td>
+
+                                    <td><button class="btn btn-primary GuncelmodalAc" data-toggle="modal" data-target="#UpdateScreen" data-ktgadi="@ktg.ad" data-id="@ktg.kategoriID" data-aciklama="@ktg.aciklama">Güncelle </button></td>
+                                }
+
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script>
+        $(".ktgsil").click(function () {
+            var KtgAdi = $(this).data("ktgadi");
+            $(".modal-body>p.mesaj").html(KtgAdi + " kategorisi silinsin mi?");
+            var id = $(this).data("id");
+            $(".ksil").data("id", id);
+        });
+
+        $(".ksil").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Kategori/Sil/" + id,
+                success: function (durum) {
+                    if (durum == "başarılı") {
+                        window.location.replace("/Kategori/Index");
+                    }
+                    else {
+                        $("modal-body>p.hata").html("Kategori silinirken bir hata oluştu!!!");
+                    }
+                }
+            });
+        });
+
+
+         $(".GuncelmodalAc").click(function () {
+            var ktgAdi = $(this).data("ktgadi");
+            var Aciklama = $(this).data("aciklama");
+
+
+             $("#Uad").val(ktgAdi);
+             $("#Uaciklama").val(Aciklama);
+
+
+            var id = $(this).data("id");
+            var ad = $(this).data("ktgadi");
+            var Aciklama1 = $(this).data("aciklama");
+
+
+            $(".ktgGuncelle").data("id", id);
+            $(".ktgGuncelle").data("ktgadi", ad);
+            $(".ktgGuncelle").data("aciklama", Aciklama1);
+
+
+
+        });
+
+
+        function TakeVal()
+        {
+            var id = $('.ktgGuncelle').data("id");
+            var ad = $("#Uad").val();
+            var Aciklama1 = $("#Uaciklama").val();
+
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Guncelle", "Kategori")", //burada controllerdaki Guncelle kısmını geçiş yapıyorum.
+                data: { id: id, ad: ad, Aciklama1: Aciklama1 },
+                success: function (durum) {
+                    if (durum == "guncellendi") {
+                        window.location.replace("/Kategori/Index");
+
+                    }
+                    else {
+                        $(".modal-body>p.hata").htm("Kategori güncelleme anında bir hata oluştu...");
+
+                    }
+                }
+
+            });
+        }
+
+    </script>
+
+}

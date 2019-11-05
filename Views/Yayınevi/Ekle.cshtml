@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Yayınevi Ekle";
+}
+
+@using YeniProje.Models
+
+@model List<Yayınevi>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Yayınevi Ekle 
+                </div>
+                <div class="block-controls">
+
+                    <a href="/Yayınevi/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Yayınevi/Ekle" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Yayınevi Adı</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Yayınevi adı giriniz" name="ad">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Adres</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Adres giriniz" name="adres">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Telefon Numarası</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Telefon numarası giriniz" name="telno">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

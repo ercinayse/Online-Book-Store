@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Kategori Ekle";
+}
+
+@using YeniProje.Models
+
+@model List<Kategori>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kategori Ekle
+                </div>
+                <div class="block-controls">
+
+                    <a href="/Kategori/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Kategori/Ekle" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kategori Adı</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kategori adı giriniz" name="ad">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Açıklama</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Açıklama giriniz" name="aciklama">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

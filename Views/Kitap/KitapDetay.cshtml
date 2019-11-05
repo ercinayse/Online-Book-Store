@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "KitapDetay";
+}
+
+@using YeniProje.Models
+@model Kitap
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 ">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
+
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                                <img src="@Model.Resim.FirstOrDefault().OrtaYol" alt="">
+                            </div>
+                            <!-- Slide 2 -->
+                            <!-- Slide 3 -->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 col-xs-12">
+
+                <h2 class="name">
+                    @Model.ad
+
+                </h2>
+                <hr>
+                <h3 class="price-container">
+                    <label>Fiyat:</label>   @Model.fiyat <label>₺</label>
+                    <small>KDV dahil</small>
+                </h3>
+                <hr>
+                <h3 class="price-container">
+                    <label>Yazar:</label>  @Model.Yazar.ad
+
+                </h3>
+                <hr>
+                <h3 class="price-container">
+                    <label>Yayınevi:</label>  @Model.Yayınevi.ad
+
+                </h3>
+
+                <hr>
+                <h3 class="price-container">
+                    <label>Stok:</label>  @Model.stok
+
+                </h3>
+
+                <hr>
+                <h3 class="price-container">
+                    <label>Yayın Tarihi:</label>  @Model.yayıntarihi
+
+                </h3>
+
+                <hr>
+                <h3 class="price-container">
+                    <label>Sayfa Sayısı:</label>  @Model.sayfasayısı
+
+                </h3>
+
+                <hr>
+                <h3 class="price-container">
+                    <label>Kategori:</label>  @Model.Kategori.ad
+
+                </h3>
+                <br /><br />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a class="btn btn-white btn-default sepeteAt" data-id="@Model.kitapID" href="#">Sepete Ekle</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="btn-group pull-right">
+
+                            <button href="/Home/Contact" class="btn btn-white btn-default"><i class="fa fa-envelope"></i> Satıcıya Ulaş</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product -->
+</div>
+
+
+@section script{
+    <script>
+        $(".sepeteAt").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Kitap/SepeteAt/" + id,
+                success: function () {
+                    alert("Ürün sepete atıldı.");
+                },
+                error: function () {
+                    alert("Ürün sepete atılırken hata oluştu.")
+                }
+            });
+        });
+    </script>
+
+
+
+}

@@ -1,0 +1,766 @@
+﻿
+@{
+    ViewBag.Title = "Detay";
+}
+
+<div class="productDetailContent">
+    <div class="col lg-2 md-2 sm-3 product-carousel grid-demo-fluid" data-bind="css: {'no-pointer-event': !variantStatus()}">
+
+        <div class="carousel-wrapper total-images-1 ajaxContainer loader" data-bind="css : { preLoader : loadingVariantInformation &amp;&amp; !isAdultShow }">
+            <!--ko if: isAdultShow-->
+            <div id="productDetailsCarousel" class="owl-carousel with-circles owl-loaded owl-drag" data-bind="css: {'no-pointer-event': !variantStatus()}">
+
+                <div class="owl-stage-outer">
+                    <div style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 600px;" class="owl-stage">
+                        <div style="width: 600px;" class="owl-item active">
+                            <a href="javascript:;" class="cloudzoom extendable" data-index="0" data-maxsize="1500">
+                                <img src="https://productimages.hepsiburada.net/s/29/552/10250435199026.jpg" itemprop="image" class="product-image" data-img="https://productimages.hepsiburada.net/s/29/#imgSize/10250435199026.jpg" alt="Tuhaf Dergi Sayı: 28 Temmuz 2019" title="Tuhaf Dergi Sayı: 28 Temmuz 2019" data-zoomable="True" data-cloudzoom="zoomImage: 'https://productimages.hepsiburada.net/s/29/1500/10250435199026.jpg'" data-bind="css: {'hidden': !isAdultShow}" height="200" width="200">
+                            </a>
+                        </div>
+                    </div>
+                </div><div class="owl-nav disabled"><div class="owl-prev disabled"><span aria-label="Previous">‹</span></div><div class="owl-next disabled"><span aria-label="Next">›</span></div></div><div class="owl-dots disabled"></div>
+            </div>
+            <div style="display: none;" id="productThumbnailsCarousel" class="owl-carousel owl-thumbnail-carousel owl-loaded owl-drag owl-hidden" data-length="1">
+
+                <div class="owl-stage-outer"><div style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 62px;" class="owl-stage"><div style="width: 62px;" class="owl-item active synced"><img style="opacity: 1;" src="https://productimages.hepsiburada.net/s/29/80/10250435199026.jpg" itemprop="image" class="product-image owl-lazy" data-src="https://productimages.hepsiburada.net/s/29/80/10250435199026.jpg" alt="Tuhaf Dergi Sayı: 28 Temmuz 2019" title="Tuhaf Dergi Sayı: 28 Temmuz 2019" height="48" width="48"></div></div></div><div class="owl-nav disabled"><div class="owl-prev disabled"><span aria-label="Previous">‹</span></div><div class="owl-next disabled"><span aria-label="Next">›</span></div></div><div class="owl-dots disabled"></div>
+            </div>
+
+            <!--/ko-->
+            <!--ko ifnot: isAdultShow--><!--/ko-->
+            <!--ko if: keyFeatures().length && variantStatus()-->
+            <div class="key-properties" data-bind="css: {'hidden': !keyFeatures().length}">
+                <div class="col lg-4">
+                    <ul data-bind="foreach: keyFeatures">
+                        <li>
+                            <strong data-bind="text: $data.name">Yayın Tarihi</strong>
+                            <span data-bind="text: $data.property">2019</span>
+                        </li>
+
+                        <li>
+                            <strong data-bind="text: $data.name">Sayfa Sayısı</strong>
+                            <span data-bind="text: $data.property">48</span>
+                        </li>
+
+                        <li>
+                            <strong data-bind="text: $data.name">Cilt Durumu</strong>
+                            <span data-bind="text: $data.property">Ciltsiz</span>
+                        </li>
+                    </ul>
+                    <a class="all-properties" href="javascript:;" data-bind="click: showDescription">Tüm özellikler</a>
+                </div>
+                <ul class="hidden">
+                    <li>
+                        <strong> Yayın Tarihi </strong>
+                        <span> 2019 </span>
+                    </li>
+                    <li>
+                        <strong> Sayfa Sayısı </strong>
+                        <span> 48 </span>
+                    </li>
+                    <li>
+                        <strong> Cilt Durumu </strong>
+                        <span> Ciltsiz </span>
+                    </li>
+                </ul>
+
+            </div>
+            <!--/ko-->
+        </div>
+        <div id="best-price" class="best-price hidden" data-bind="css: {'hidden' : !showBestPriceBadge() || !variantStatus() }">
+        </div>
+    </div>
+    <!-- [if !IE]> -->
+    <div id="extendedImageContainer">
+        <div class="image-container-box container with-circles fixed">
+            <div style="width: 960px;" class="image-container-zoom">
+                <div class="carousel-wrapper total-images-1 ajaxContainer loader">
+
+                    <div id="productDetailsZoomCarousel" class="owl-carousel owl-loaded owl-drag with-thumbnails">
+
+                        <div class="owl-stage-outer">
+                            <div style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; height: 276.8px;" class="owl-stage">
+                                <div class="owl-item">
+                                    <div style="height: 276.8px;" data-dot="<img src='https://productimages.hepsiburada.net/s/29/80/10250435199026.jpg' />">
+                                        <img class="product-image zoomable " id="image-0" data-src="https://productimages.hepsiburada.net/s/29/1500/10250435199026.jpg" src="https://productimages.hepsiburada.net/s/29/1500/10250435199026.jpg" data-maxsize="1500" data-zoomable="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-nav disabled"><div class="owl-prev disabled"></div><div class="owl-next disabled"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container-thumbs">
+                <div id="close-btn-container"><button class="close">Kapat</button></div>
+                <div class="owl-dots-u"><div class="owl-dots disabled"><div class="owl-dot active"><img src="https://productimages.hepsiburada.net/s/29/80/10250435199026.jpg"></div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- <![endif]-->
+    <div class="productDetailRight col lg-2 md-2 sm-1 grid-demo-fluid">
+        <div class="product-information col lg-5 sm-1">
+            <header class="title-wrapper">
+                <h1 itemprop="name" class="product-name best-price-trick" id="product-name" data-bind="markupText: 'productName', event: {mouseup: handleMouseUpForProductName}">
+                    Tuhaf Dergi Sayı: 28 Temmuz 2019
+                </h1>
+            </header>
+            <span class="brand-name">
+                <a class=" hbus 5415" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;BrandClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" href="/Tuhaf€20Dergi" data-bind="attr: {'data-hbus': userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('BrandClick') : '' }" title="Tuhaf Dergi">Tuhaf Dergi</a>
+            </span>
+            <!--ko if: variantStatus()-->
+            <a id="first-campaign-ribbon" data-bind="visible: firstCampaign().length > 0 &amp;&amp; showCampaignsTab(), click: showAllCampaigns">
+                <span class=" hbus 52d2" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CampaignLinkClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" data-bind="text: firstCampaign, attr:{'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CampaignLinkClick'): ''}">100 TL ve Üzeri Kitap Alışverişlerinde On Dakika Otuz Sekiz Saniye Kitabı Sepette %30 İndirimli!</span>
+            </a>
+            <!--/ko-->
+
+
+            <div style="display: none;" class="green-band" data-bind="html: specialCampaignHtml, visible: variantStatus() &amp;&amp; showUserSpecialCampaign(), css: {visible: !hasExtraDiscount() &amp;&amp; isTabletAndShowSpecialCampaign()}"></div>
+            <!--ko if: variantStatus()-->
+            <div class="product-price-wrapper">
+                <div class="product-price-and-ratings" data-bind="css:{'no-review': !isInStock()}">
+
+                    <input id="useNewPricing" title="useNewPricing" value="value" type="hidden">
+                    <div class="price-wrapper" data-bind="visible: isInStock()" style="">
+                        <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="product-price price-container big" data-bind="css: {'active': product().currentListing.pricing.listingPriceList.length > 2}">
+
+                            <span class="badge highlight active" id="product-discount-rate" data-bind="css: {'active' : hasDiscountPrice() &amp;&amp; isInStock() }">
+                                <span class="discount-amount">
+                                    %<span data-bind="markupText: 'discountRate'">33</span>
+                                </span>
+                                indirim
+                            </span>
+                            <del id="originalPrice" class="product-old-price price old active" data-bind="markupText:'originalPrice',css: {'active' : hasDiscountPrice}">12,00 TL</del>
+                            <span class="price hepsiburada" itemprop="price" data-bind="css: {'merchant': !isHepsiburadaProduct(), 'hepsiburada': isHepsiburadaProduct()}" id="offering-price" content="8.00">
+                                <span data-bind="markupText:'currentPriceBeforePoint'">8</span>,<span data-bind="markupText:'currentPriceAfterPoint'">00</span>
+                                <span class="turkishLira" itemprop="priceCurrency" content="TRY">TL</span>
+                                <span class="unit-price hidden" data-bind="text:unitPriceFormatted(), css: {hidden: unitPriceFormatted() == ''}"></span>
+                            </span>
+                            <link itemprop="availability" href="http://schema.org/InStock">
+                        </div>
+                        <!-- ko if: product().currentListing.pricing.listingPriceList.length > 2 --><!--/ko-->
+                        <div class="unit-price-container for-tablet hidden" data-bind="css: {hidden: unitPriceFormatted() == ''}">
+                            <span class="unit-price hidden" data-bind="text:unitPriceFormatted(), css: {hidden: unitPriceFormatted() == ''}"></span>
+                        </div>
+
+
+                        <ul class="installment-list">
+                            <li class="best-installment-option hidden" data-bind="css: {'hidden': bestInstallmentText() === ''}">
+                                <a href="javascript:;" data-bind="click: showPaymentTab" class="best-installment-option link">
+                                    <span data-bind="text: bestInstallmentText()"></span>
+                                    ay’a varan <span class="unique-bold">Taksit Seçenekleri</span>
+                                </a>
+                            </li>
+                            <li class="best-installment-maxLoanLimit hidden" data-bind="css: {'hidden': maxLoanLimitAsMonth() === ''}">
+                                <a href="javascript:;" data-bind="click: showInstallmentTable" class="best-installment-option link">
+                                    <span data-bind="text: maxLoanLimitAsMonth()"></span>
+                                    ay’a varan vade ile <span class="bold">Alışveriş Kredisi</span> seçeneği
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="seller-container">
+                            <span class="seller">
+                                <span data-bind="text: 'Satıcı' + ':'">Satıcı:</span>
+                                <span>
+                                    <a class="hepsiburada hbus c7a8" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;GoToSellerClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" href="javascript:;" data-bind="text: product().currentListing.merchantName, attr: { href: product().currentListing.isHepsiburadaProduct ? 'javascript:;' : product().currentListing.merchantPageUrl, 'data-hbus': userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('GoToSellerClick' ): ''}, css: {hepsiburada: product().currentListing.isHepsiburadaProduct}">Hepsiburada</a>
+                                </span>
+                            </span>
+                            <!-- ko if: product().currentListing.merchantRatingSummary--><!--/ko-->
+                            <a data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;ViewCampaignsClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" class="show-campaigns hbus 4442" data-bind="visible: showCampaignsTab(), tab: { content: '#tabCampaigns', options: { activeClass: 'expanded' } }, click: showAllCampaigns, attr:{'data-hbus': userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('ViewCampaignsClick'): ''}">
+                                Kampanyaları Gör <span class="campaigns-length" data-bind="text: campaignCount">2</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-detail-box" style="display: none" data-bind="visible: !isInStock()">
+                        <div class="procurable-status-wrapper">
+                            <span>Bu ürün geçici olarak temin edilememektedir.</span>
+                            <span class="come-back">Ürün temin edildiğinde tekrar satışa sunulacaktır.</span>
+                        </div>
+                    </div>
+                    <input id="faFashion" value="False" type="hidden">
+
+                    <div class="ratings-container bigger" data-bind="visible: isInStock()" style="">
+
+                        <a id="productReviews" href="javascript:;" data-bind="click: showReviewsTab">
+                            <span class="ratings" data-bind="css: {expanded : isProductReviewVisible()}" itemtype="http://schema.org/AggregateRating" itemscope="itemscope" itemprop="aggregateRating">
+                                <span data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CommentStarClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" class="ratings active hbus 33fc" style="width: 100%" data-bind="attr:{'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CommentStarClick') : ''}"></span>
+                                <span itemprop="ratingValue" content="5"></span>
+                                <span itemprop="reviewCount" content="2"></span>
+                                <span itemprop="worstRating" content="0"></span>
+                                <span itemprop="bestRating" content="5"></span>
+                            </span>
+                        </a>
+                        <div id="comments-container">
+                            <a data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CommentNumberClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;},&quot;type&quot;:&quot;productDetail&quot;}" href="javascript:;" class="product-comments hbus 96e1" data-bind="css: {expanded : isProductReviewVisible()}, click: showReviewsTab, attr: { 'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CommentNumberClick'): ''}">
+                                Yorum (<span content="2">2</span>)
+                            </a>
+                            <span class="comment-seperator">|</span>
+
+                            <a data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;SendCommentClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;,&quot;type&quot;:&quot;open&quot;,&quot;location&quot;:&quot;buybox&quot;},&quot;type&quot;:&quot;productReview&quot;}" href="javascript:;" class="product-comments  hbus ea12" data-bind="click: addNewReview, attr: { 'data-hbus' : userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productReviewHbus('SendCommentClick', 'open', 'buybox'): ''}">
+                                Yorum Yap
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ko-->
+            <div class="preorderArea" data-bind="visible: isPreOrder() &amp;&amp; isHepsiburadaProduct() &amp;&amp; variantStatus()" style="display: none">
+                <div class="title">
+                    <span data-bind="text: inStockDate"></span> tarihinde stoklarda olacaktır.
+                </div>
+                <span class="description">
+                    Ürün farklı bir fiyattan satışa sunulabilir. Eğer ürün daha yüksek bir fiyattan satışa sunulursa, ön sipariş veren müşteriden fiyat farkı alınmaz, ayrıca teslimatta öncelik sağlanır. Ürün daha düşük bir fiyattan satışa sunulursa, aradaki fark teslimatı takip eden 1 hafta içerisinde ön sipariş veren müşteriye ödenir.
+                </span>
+            </div>
+            <!-- ko if: product().variants.length >= 1 || (product().campaignNote && product().currentListing.isHepsiburadaProduct) --><!--/ko-->
+            <!--ko if: isInStock() && (!product().campaignNote || !product().currentListing.isHepsiburadaProduct) && variantStatus()-->
+            <div class="suggested-products" data-bind="css: {active: product().vasModel.suggestedProducts.length > 0}">
+                <span class="suggest-title" data-bind="text: product().vasModel.title2"></span>
+                <div data-bind="foreach: product().vasModel.suggestedProducts"></div>
+            </div>
+            <!--/ko-->
+            <!--ko if: isInStock() && (!product().campaignNote || !product().currentListing.isHepsiburadaProduct) -->
+            <div class="product-variants-content add-to-cart-content" data-bind="visible: (product().variants.length > 1 || isInStock()) &amp;&amp; variantStatus(), css: {'dark': product().subscribeAvailable &amp;&amp; !isPreOrder() &amp;&amp; isHepsiburadaProduct()}">
+                <!--ko if: isHepsiburadaProduct() && !isPreOrder() && product().subscribeAvailable --><!--/ko-->
+                <!-- ko 'with': lineItemForm -->
+                <form id="addToCartForm" method="POST" action="/ShoppingCart/AddToCart" data-bind="submit: $parent.addCurrentItemToCart,
+                 notification: {message: addToCartMessage, callback: resetState},
+                 visible: $parent.isInStock() &amp;&amp; !($parent.product().campaignNote &amp;&amp; $parent.product().currentListing.isHepsiburadaProduct),
+                 css: {preLoader: isLoading, big: false &amp;&amp; !$parent.isCustomizable() }" data-success="Ürün başarılı bir şekilde sepete eklenmiştir." data-fail="Ürün sepete eklenememiştir." data-selection="Lütfen bir seçim yapınız." data-invalidquantity="Eklemek istediğiniz ürünün adedi geçerli değildir." data-oneclick-shopping-url="/ShoppingCart/OneClickPay" data-davincilocation="Buybox" style="">
+                    <input name="catalog" value="Kitap" data-bind="markupValue: 'catalog'" autocomplete="off" type="hidden">
+                    <input name="sku" value="HBV00000LEU9F" data-bind="markupValue: 'sku'" autocomplete="off" type="hidden">
+                    <input name="productId" value="HB00000LEU9E" data-bind="markupValue: 'productId'" autocomplete="off" type="hidden">
+                    <input name="contentType" value="application/json" data-bind="markupValue: 'contentType'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="dataType" value="json" data-bind="markupValue: 'dataType'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="hasProductAsJsons" value="false" data-bind="markupValue: 'hasProductAsJsons'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="listingid" data-bind="markupValue: 'listingId'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="merchantId" value="Hepsiburada" data-bind="markupValue: 'merchantId'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="checkoutType" value="0" data-bind="markupValue: 'checkoutType'" disabled="disabled" autocomplete="off" type="hidden">
+                    <input name="location" value="1" disabled="disabled" autocomplete="off" type="hidden">
+                    <div class="quantity-wrapper inline-fields">
+                        <div class="input-group">
+                            <button class="button effective icon icon-minus" style="font-style: italic" title="Azalt" data-bind="click: decreaseQuantity">
+                                <span>Azalt</span>
+                            </button>
+                            <input id="quantity" name="quantity" class="input short" value="1" maxlength="3" data-bind="markupValue: 'quantity', event: {keypress: banText}" type="text">
+                            <button class="button effective icon icon-plus" style="font-style: italic" title="Arttır" data-bind="click: increaseQuantity">
+                                <span>Arttır</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!--[if lte IE 9]>
+                        <button type="button" class="btn m button" id="addToCart"
+                                data-catalogname="Kitap"
+                                data-isvariants="false" disabled="disabled"
+                                data-bind="click: $parent.addCurrentItemToCart.bind($parent), attr:{'data-price':webtrekkCost, 'data-sku':sku, 'data-loginstatus':webtrekkLoginStatus}">
+
+                            <i data-bind="visible: $parent.isPreOrder()" class="icon icon-cart"></i>
+                            <span class="preorder-text" data-bind="if: $parent.isPreOrder()">&#214;n Sipariş Ver</span>
+                            <span data-bind="ifnot: $parent.isPreOrder()">Sepete Ekle</span>
+                        </button>
+                        <button type="button" class="btn m button" id="oneClickPay"
+                                data-catalogname="Kitap"
+                                data-isvariants="false" disabled="disabled"
+                                data-bind="visible: false && !$parent.isCustomizable() ,click: $parent.oneClickShopping.bind($parent), attr:{'data-price':webtrekkCost, 'data-sku':sku, 'data-loginstatus':webtrekkLoginStatus}">
+
+                            <i class="icon icon-one-click-pay"></i>
+                            <span>Tek Tıkla Al</span>
+                        </button>
+                    <![endif]-->
+                    <span class="addToCartButton">
+                        <!--[if !IE]-->
+                        <button data-price="8" data-sku="HBV00000LEU9F" type="button" class="button big with-icon" id="addToCart" data-catalogname="Kitap" data-isvariants="false" data-bind="click: $parent.addCurrentItemToCart.bind($parent), attr:{'data-price':webtrekkCost, 'data-sku':sku, 'data-loginstatus':webtrekkLoginStatus}, css:{'pre': $parent.isPreOrder()}">
+                            <i style="display: none;" data-bind="visible: $parent.isPreOrder() &amp;&amp; $parent.isHepsiburadaProduct(), attr:{}" class="icon icon-preorder"></i>
+                            <span class="preorder-text" data-bind="if: $parent.isPreOrder() &amp;&amp; $parent.isHepsiburadaProduct()"></span>
+                            <i data-bind="visible: !$parent.isPreOrder() || !$parent.isHepsiburadaProduct()" class="icon icon-cart"></i>
+                            <span data-bind="ifnot: $parent.isPreOrder() &amp;&amp; $parent.isHepsiburadaProduct()">Sepete Ekle</span>
+                        </button>
+                        <button data-price="8" data-sku="HBV00000LEU9F" style="display: none;" type="button" class="button big with-icon green" id="oneClickPay" data-catalogname="Kitap" data-isvariants="false" data-bind="visible: false &amp;&amp; !$parent.isCustomizable(), click: $parent.oneClickShopping.bind($parent), attr:{'data-price':webtrekkCost, 'data-sku':sku, 'data-loginstatus':webtrekkLoginStatus}, css:{'pre': $parent.isPreOrder()}">
+                            <i class="icon icon-one-click-pay"></i>
+                            <span>Tek Tıkla Al</span>
+                        </button>
+                        <!--[endif]-->
+                    </span>
+                </form>
+                <!-- /ko -->
+                <div data-bind="visible: isInStock() &amp;&amp; !(product().campaignNote &amp;&amp; product().currentListing.isHepsiburadaProduct)" style="">
+                    <div data-bind="visible: !(product().isOnlineLicenceProduct || product().nonTransferable) &amp;&amp; product().currentListing.shipmentInformation.howManyDaysToShipment === 0">
+                        <div data-bind="visible: timerForShipment.showCounter">
+                            <div class="shipment-content" data-bind="css:{hidden: product().currentListing.isPreOrder}, visible: !product().currentListing.isPreOrder &amp;&amp; product().currentListing.shipmentInformation.howManyDaysToShipment <= 7">
+                                <ul>
+                                    <li data-bind="visible: timerForShipment.isVisible() &amp;&amp; timerForShipment.dueText" style="display: none;">
+                                        <b style="display: none;" class="hour" data-bind="text: timerForShipment.clock().hours + ' saat ', visible: timerForShipment.clock().hours > 0">0 saat </b>
+                                        <b class="minute" data-bind="text: timerForShipment.clock().minutes">50</b>
+                                        <span data-bind="html: timerForShipment.dueText">En geç <b>22 Temmuz Pazartesi</b> günü kargoda</span>
+                                    </li>
+                                    <li data-bind="visible: !timerForShipment.isVisible() &amp;&amp; timerForShipment.dueText">
+                                        <span data-bind="html: timerForShipment.dueText">En geç <b>22 Temmuz Pazartesi</b> günü kargoda</span>
+                                    </li>
+                                    <li style="display: none;" id="locationBaseDeliveryWithTimer" data-bind="visible: product().currentListing.todaysDeliveryCity">
+                                        <span id="tooltipContainerWithTimer" class="text">
+                                            <b data-bind="text: product().currentListing.todaysDeliveryCity"></b>
+                                            iline bugün teslimat seçeneği
+                                            <span class="tooltip-info-icon"></span>
+                                        </span>
+                                    </li>
+                                    <li style="display: none" data-bind="visible: product().currentListing.shipmentInformation.freeShipping">(Kargo Bedava)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-bind="visible: !(product().isOnlineLicenceProduct || product().nonTransferable) &amp;&amp; shippingTime() &amp;&amp; product().currentListing.shipmentInformation.howManyDaysToShipment !== 0" style="display: none;">
+                        <div class="shipment-content" data-bind="css:{hidden: product().currentListing.isPreOrder}, visible: !product().currentListing.isPreOrder">
+                            <ul>
+                                <li data-bind="visible: timerForShipment.dueText, html: timerForShipment.dueText">En geç <b>22 Temmuz Pazartesi</b> günü kargoda</li>
+                                <li style="display: none" data-bind="visible: product().currentListing.shipmentInformation.freeShipping">(Kargo Bedava)</li>
+                                <li style="display: none;" id="locationBaseDelivery" data-bind="visible: product().currentListing.todaysDeliveryCity"><span id="tooltipContainer" class="text"><b data-bind="text: product().currentListing.todaysDeliveryCity"></b> iline bugün teslimat seçeneği <span class="tooltip-info-icon"></span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/html" id="productRecommendationTemplate">
+                    <div class="popup" data-bind="css: {'preLoader': lineItemForm.isLoading()}">
+                        <!--ko ifnot: isMerchant-->
+                        <i data-bind="click: productModel.addCurrentItemToCart.bind($data, $data.addToCartWidget, $data.addToCartEvent, true, null, $data.productModel)" class="close"></i>
+                        <!-- /ko -->
+                        <!--ko if: isMerchant-->
+                        <i data-bind="click: lineItemForm.addMerchantProduct.bind($data, productModel, formElement(), null, false)" class="close"></i>
+                        <!-- /ko -->
+                        <span class="title" data-bind="text: product().title"></span>
+
+                        <div class="suggested-products">
+                            <span class="caption no-margin" data-bind="text: product().title2"></span>
+                            <!-- ko foreach: product().suggestedProducts -->
+                            <div class="suggested-product">
+                                <div class="suggested-product-image">
+                                    <img data-bind="attr: {src: logo}" />
+                                </div>
+                                <div class="suggested-product-description">
+                                    <div data-bind="html: description"></div>
+                                    <a class="detail-link" target="_blank" data-bind="attr: {href: detailLink}">
+                                        <span data-bind="html: detailText"></span>
+                                    </a>
+                                </div>
+                                <div class="suggested-product-details">
+                                    <span class="suggested-product-quantity"><span data-bind="text: $parent.productModel.togetherQuantity"></span> Adet <span data-bind="text: $parent.product().vasType == 'insurance' ? 'Sigorta' : 'Montaj'"></span> Paketi Ücreti:</span>
+                                    <div class="price-container highlight-badge ">
+                                        <!-- ko if: discountRate-->
+                                        <div class="badge highlight discount-badge active">
+                                            <small>%</small><span data-bind="text: discountRate"></span>
+                                        </div>
+                                        <del class="price old product-old-price active" data-bind="text: $parent.format(originalPrice.value * parseInt($parent.productModel.togetherQuantity()), 2, ',', '.') + ' TL'"></del>
+                                        <!-- /ko -->
+                                        <span class="price product-price" data-bind="text: $parent.format(price.value * parseInt($parent.productModel.togetherQuantity()), 2, ',', '.') + ' TL'"></span>
+                                    </div>
+                                    <div class="suggested-product-button">
+                                        <button class="add-to-basket button" data-bind="click: $parent.productModel.addCurrentItemToCart.bind($parent, $parent.addToCartWidget, $parent.addToCartEvent, true, $parent.recommendedProduct(), $parent.productModel, sku, true)">
+                                            <span>Sepete Ekle</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                        <!--ko ifnot: isMerchant-->
+                        <a class="deny-text" href="javascript:;" data-bind="text: product().denyText, click: productModel.addCurrentItemToCart.bind($data, $data.addToCartWidget, $data.addToCartEvent, true, null, $data.productModel)"></a>
+                        <!-- /ko -->
+                        <!--ko if: isMerchant-->
+                        <a class="deny-text" href="javascript:;" data-bind="text: product().denyText, click: lineItemForm.addMerchantProduct.bind($data, productModel, formElement(), null, false)"></a>
+                        <!-- /ko -->
+                    </div>
+                </script>
+
+            </div>
+            <!--/ko-->
+            <div id="badges" class="product-featured-details" data-bind="visible: isVisibleBadges() &amp;&amp; variantStatus()" style="">
+
+                <div class="badge-boxes ">
+                    <a href="//www.hepsiburada.com/ayni-gun-kargo-teslimat" rel="nofollow">
+                        <span class="badge-box">
+                            <img src="https://images.hepsiburada.net/hbv2/ProductDetails/storefront_widgets_small/iconhepsiexpressbadge_1548679137130.png">
+                        </span>
+                    </a>
+                    <a rel="nofollow">
+                        <span class="badge-box">
+                            <img src="https://images.hepsiburada.net/hbv2/ProductDetails/storefront_widgets_small/fastshipping_1563536473856.png">
+                        </span>
+                    </a>
+                    <a href="https://www.hepsiburada.com/staticPage/13352" rel="nofollow">
+                        <span class="badge-box">
+                            <img src="https://images.hepsiburada.net/hbv2/ProductDetails/storefront_widgets_small/50tluzerikb_1543055944950.png">
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="addToMyFavoriteList" data-bind="css: {hidden: !variantStatus()}">
+                <ul>
+                    <li class="favorite" data-bind="css: {'active' : favoriteProduct.isFavorite()}">
+                        <a class=" hbus 9af9" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;AddToFavouritesClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;,&quot;type&quot;:&quot;open&quot;,&quot;location&quot;:&quot;buybox&quot;},&quot;type&quot;:&quot;productDetail&quot;}" href="javascript:;" data-bind="click: favoriteProduct.clickHandler.bind($data.favoriteProduct), attr: {'data-hbus': userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('AddToFavouritesClick') : '' }, text: favoriteProduct.favoriteText">Favori Listeme Ekle</a>
+                    </li>
+                    <li class="compare">
+                        <a class=" hbus bf97" data-hbus="{&quot;events&quot;:{&quot;click&quot;:[&quot;davinci&quot;]},&quot;data&quot;:{&quot;eventName&quot;:&quot;CompareItemsClick&quot;,&quot;categoryHierarchy&quot;:[{&quot;id&quot;:&quot;60001501&quot;,&quot;name&quot;:&quot;Kitap Film Müzik&quot;},{&quot;id&quot;:&quot;2147483645&quot;,&quot;name&quot;:&quot;Kitap&quot;},{&quot;id&quot;:&quot;10004&quot;,&quot;name&quot;:&quot;Dergi&quot;},{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;Tarih Dergileri&quot;}],&quot;merchant&quot;:{&quot;id&quot;:&quot;Hepsiburada&quot;,&quot;name&quot;:&quot;Hepsiburada&quot;},&quot;category&quot;:{&quot;id&quot;:&quot;15018809&quot;,&quot;name&quot;:&quot;tarih-dergileri&quot;},&quot;products&quot;:[{&quot;product_id&quot;:&quot;HB00000LEU9E&quot;,&quot;price&quot;:&quot;8&quot;,&quot;sku&quot;:&quot;HBV00000LEU9F&quot;,&quot;product_status&quot;:&quot;InStock&quot;,&quot;shipping_type&quot;:&quot;super-hizli&quot;,&quot;listing_id&quot;:null,&quot;position&quot;:1}],&quot;channel&quot;:&quot;desktop&quot;,&quot;type&quot;:&quot;open&quot;,&quot;location&quot;:&quot;buybox&quot;},&quot;type&quot;:&quot;productDetail&quot;}" href="javascript:;" data-bind="visible: !product().campaignNote, click: compare.addProductToCompare.bind($data.compare), attr: {'data-hbus': userInformation() &amp;&amp; userInformation().userId &amp;&amp; isEventReady() ? productDetailHbus('CompareItemsClick') : '' } " rel="nofollow">
+                            Karşılaştır <span style="display: none;" data-bind="text: '(' + compare.selectedProducts().length + ')', visible: compare.selectedProducts().length > 0">(0)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="popupMessage">
+                <div class="popup">
+                    <i class="close"></i>
+                    <span class="title">Ürün favorilerinize eklendi!</span>
+                    <a class="goToMyFavoriteList" href="/liste/MyPage/MyShoppingList.aspx">Favori Listeme Git</a>
+                    <a class="goOn" href="javascript:;">Alışverişe devam et</a>
+                </div>
+            </div>
+            <div class="popupMessageLimit">
+                <div class="popup">
+                    <i class="close"></i>
+                    <span class="title">
+                        <span class="sub">Favori Listenize en fazla 600 ürün ekleyebilirsiniz.</span>
+                        <span class="sub">Ürün eklemek için Favori Listenizdeki ürünlerden bazılarını silmeniz gerekmektedir.</span>
+                    </span>
+                    <a class="goToMyFavoriteList" href="/liste/MyPage/MyShoppingList.aspx">Favori Listeme Git</a>
+                    <a class="goOn" href="javascript:;">Alışverişe devam et</a>
+                </div>
+            </div>
+            <script type="text/html" id="productComparisonTemplate">
+                <div class="popup">
+                    <i data-bind="click: closePopup" class="close"></i>
+                    <span class="title">
+                        Karşılaştır
+                    </span>
+                    <span class="description"
+                          data-bind="text: message, visible: selectedProducts().length > 0, css: {warning: errorMessage}"></span>
+                    <div class="compareProductsContent" data-bind="css: {'scroll': isScroll}">
+                        <ul class="compare-products"
+                            data-bind="foreach: selectedProducts, attr: {style: 'width:' + ((selectedProductsLength() * 180) + ((selectedProductsLength() - 1) * 10)) +'px'}">
+                            <li data-bind="css: {'null': sku == 'null', 'none': $parent.hidePlaceholder}">
+                                <a data-bind="attr:{ 'href': productUrl}">
+                                    <span class="removeCompareProduct"
+                                          data-bind="attr:{ 'data-sku': sku }, click: $parent.removeFromCompare.bind($parent)"></span>
+                                    <img data-bind="attr: { src: imageUrl}" />
+                                    <span class="compareProductName" data-bind="text: name"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="productMessage" data-bind="visible: addOneMore, text: addProductMessage"></span>
+                    <div class="button free" data-bind="click: goToComparePage,visible: hidePlaceholder" rel="nofollow">
+                        Karşılaştır
+                    </div>
+                </div>
+            </script>
+            <script type="text/html" id="loanExpandTemplate">
+                <div class="popup">
+                    <i data-bind="click: closePopup" class="close"></i>
+                    <span class="title">
+                        &#214;rnek &#214;deme Planı
+                    </span>
+                    <span class="description">
+                        <div class="loan-table">
+                            <div class="loan-table-logo" data-bind="css: '_b'+ activeExpandedBank().bankCode, style: { backgroundImage: 'url(\'https://images.hepsiburada.net/assets/storefront/banks/' + activeExpandedBank().bankCode + '-lg.svg\')' }"></div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td align="center">Vade</td>
+                                        <td align="center">Taksit TutarÄ±</td>
+                                        <td align="center">Toplam Tutar</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ko foreach: activeExpandedBank().data -->
+                                    <tr>
+                                        <td align="center" data-bind="text: $data.term + ' Ay'"></td>
+                                        <td align="center" data-bind="text: $data.monthlyPayment"></td>
+                                        <td align="center" data-bind="text: $data.totalRepayment"></td>
+                                    </tr>
+                                    <!-- /ko -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </span>
+                </div>
+            </script>
+            <script type="text/html" id="adultTemplate">
+                <div class="popup">
+                    <i data-bind="click: adultAnswer.bind($data, 0)" class="closeAdult"></i>
+                    <span class="title">
+                        Bilgi
+                    </span>
+                    <i class="info">+18</i>
+                    <span class="productMessage">T&#252;rk Ceza Kanunu&#39;nun 226. Maddesi gereğince 18 yaşın altındaki kullanıcıların bu sayfayı g&#246;r&#252;nt&#252;lemesi ve &#252;r&#252;n satın alması yasaktır.</span>
+                    <div class="button-container">
+                        <button data-bind="click: adultAnswer.bind($data, 0)">18 yaşından k&#252;&#231;&#252;ğ&#252;m</button>
+                        <button data-bind="click: adultAnswer.bind($data, 1)">18 yaşından b&#252;y&#252;ğ&#252;m</button>
+                    </div>
+                </div>
+            </script>
+
+            <script type="text/html" id="installmentTemplate">
+                <div class="popup l">
+                    <i class="closeLoans" data-bind="click: closePopup"></i>
+                    <span class="title">
+
+                        <!-- ko foreach: installmentList -->
+                        <!-- ko if: $data.data.length > 0-->
+                        <span data-bind="attr: {class: 'bank-' + $data.bankId}"></span>
+                        <!-- /ko -->
+                        <!-- /ko -->
+                    </span>
+                    <div class="information-text">
+                        <p> * Vade ve taksit tutarları tek bir &#252;r&#252;n &#252;zerinden hesaplanmış olup sepetteki tutar &#252;zerinden değişiklik g&#246;sterebilir.</p>
+                    </div>
+                    <div class="installment-table-container preLoader" data-bind="css: {preLoader: !isInstallmentAjaxDone()}">
+                        <div class="installment-scroll">
+                            <table>
+                                <thead class="white-bg">
+                                    <tr>
+                                        <!-- ko foreach: installmentList -->
+                                        <!-- ko if: $data.data.length > 0-->
+                                        <td>
+                                            <span>Vade</span>
+                                        </td>
+                                        <td>
+                                            <span>Taksit Tutarı</span>
+                                        </td>
+                                        <td>
+                                            <span>Toplam Tutar</span>
+                                        </td>
+                                        <!-- /ko -->
+                                        <!-- /ko -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ko foreach: installmentListByTerms-->
+                                    <tr>
+                                        <td>
+                                            <span data-bind="text: $data[0].term + ' Ay'"></span>
+                                        </td>
+                                        <!-- ko foreach: $data -->
+                                        <td>
+                                            <span data-bind="text: $data.installmentAmount + ' TL' || '-'"></span>
+                                        </td>
+                                        <td>
+                                            <span data-bind="text: $data.totalAmount + ' TL' || '-'"></span>
+                                        </td>
+                                        <!-- /ko -->
+                                    </tr>
+                                    <!-- /ko -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </script>
+            <script type="text/html" id="bestPriceTemplate">
+                <div class="popup">
+                    <i data-bind="click: closePopup" class="close"></i>
+                    <span class="title">
+                        Bilgi
+                    </span>
+                    <span class="text">
+                        Bu &#252;r&#252;n i&#231;in en ucuz fiyat
+                        Hepsiburada&#39;da!
+                    </span>
+                    <div class="description">
+                        Bu &#252;r&#252;n, T&#252;rkiye’nin t&#252;m ulusal perakende zincirlerinin reklam, broş&#252;r ve web-sitelerinden daha ucuz!
+                    </div>
+                    <a class="detail-link" rel="nofollow" href="//www.hepsiburada.com/daha-ucuzu-yok">Detaylı Bilgi</a>
+                </div>
+            </script>
+            <div class="priceAlarmContainer" data-bind="with: priceAlarm" style="display: none;">
+                <div class="priceAlarm popup">
+                    <i data-bind="click: closePopup" class="close"></i>
+                    <span class="title">
+                        Fiyat Alarmı
+                        <span class="criteria-info" data-bind="click: showInfo">
+                            <i class="cancel"></i>
+                            <span>Bilgi</span>
+                            <div class="tooltip-info" data-bind="css: {'active': isInfoVisible}">
+                                <div class="tooltip-title">Alarm Listesi HakkÄ±nda</div>
+                                <div class="criteria">
+                                    <p>
+                                        Bu Ã¼rÃ¼nÃ¼n fiyatÄ± alarm fiyatÄ±nÄ±za ya da altÄ±na dÃ¼ÅŸtÃ¼ÄŸÃ¼ anda otomatik olarak bir email alacaksÄ±nÄ±z.
+                                    </p>
+                                    <p>
+                                        Alarm sÃ¼resi alarmÄ±n geÃ§erli olduÄŸu sÃ¼redir. Ã–rnek olarak alarm sÃ¼resi olarak 15 gÃ¼n seÃ§erek Ã¼rÃ¼nÃ¼ listenize eklerseniz bugÃ¼nden geÃ§erli olarak 15 gÃ¼n iÃ§inde Ã¼rÃ¼nÃ¼n fiyatÄ± alarm fiyatÄ± veya altÄ±na dÃ¼ÅŸerse anÄ±nda size bir email gÃ¶nderilecektir.
+                                    </p>
+                                    <p>
+                                        EÄŸer 15 gÃ¼n iÃ§inde Ã¼rÃ¼n alarm fiyatÄ±nÄ±n altÄ±na dÃ¼ÅŸmezse alarmÄ±n sÃ¼resi dolduÄŸundan sonraki fiyat deÄŸiÅŸikliklerinden haberdar olamazsÄ±nÄ±z. SÃ¼resi dolan alarmlarÄ±n sÃ¼relerini "Alarm Listesi" sayfasÄ±ndan uzatabilirsiniz.
+                                    </p>
+                                </div>
+                            </div>
+                        </span>
+                    </span>
+                    <div class="info" data-bind="visible: !isDone()">
+                        <span class="product-name" data-bind="text: productName()">
+                            Tuhaf Dergi Sayı: 28 Temmuz 2019
+                        </span>
+                        <span class="all-price">
+                            <span class="product-price" data-bind="text: format(currentPrice(), 2, ',', '.')">8,00</span><span> TL</span>
+                        </span>
+                        <div class="formArea">
+                            <div class="animateInput">
+                                <div class="inputArea">
+                                    <input id="expected-price" maxlength="7" data-bind="value: targetPrice, css: {'act': targetPrice().length > 0,'error': errorText().length > 0}, event: {focus: isFocus(), keypress: banText}" class="input free" type="text">
+                                    <label class="priceToWait review-label" data-bind="css: {active: targetPrice().length > 0}">Beklediğiniz Fiyat</label>
+                                </div>
+                                <span class="field-error" data-bind="text: errorText, css: {error: errorText().length > 0}"></span>
+                            </div>
+                            <div class="animateInput select-area">
+                                <div class="inputArea">
+                                    <select id="alarm-time" data-bind="options: timeRangeList,
+                                            optionsText: function(item) { return item + ' gÃ¼n' },
+                                            value: selectedTimeRange,
+                                            css: {act: selectedTimeRange().length>
+                                        0}" class="select free act">
+                                        <option value="15">15 gÃ¼n</option>
+                                        <option value="30">30 gÃ¼n</option>
+                                        <option value="90">90 gÃ¼n</option>
+                                    </select>
+                                    <label class="alarmRange review-label">Alarm Süresi</label>
+                                </div>
+                            </div>
+                            <button id="add-price-alert" href="javascript:;" class="button free" data-bind="click: addPriceAlarm">
+                                Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="priceAlarmSuccess popup" data-bind="visible: isDone()" style="display: none;">
+                    <div class="description">
+                        <span>Fiyat alarmınız başarıyla kurulmuştur.</span>
+                        <span>ÃœrÃ¼n fiyatÄ± <span data-bind="text: targetPrice"></span> TL ve altÄ±na dÃ¼ÅŸtÃ¼ÄŸÃ¼nde eposta ile bilgilendirileceksiniz.</span>
+                        <span><span data-bind="text: selectedTimeRange">15</span> gÃ¼n sonra alarm otomatik olarak kaldÄ±rÄ±lacaktÄ±r.</span>
+                    </div>
+                    <button href="javascript:;" data-bind="click: closePopup" class="goToMyFavoriteList button free">
+                        Alışverişe devam et
+                    </button>
+                    <a class="goOn" href="https://www.hepsiburada.com/liste/MyPage/PriceAlert.aspx">Alarm Listeme Git</a>
+                </div>
+            </div>
+
+        </div>
+        <!--ko if: variantStatus()-->
+        <div class="merchantLists col lg-5 sm-1 no-padding" data-bind="css: {'no-padding' : isHepsiburadaProduct}, if ( product().isOtherBuyOptionsVisible || product().reviews.length > 0 )">
+
+
+            <div class="best-review">
+                <div class="best-review-content" data-bind="css:{'visible' : (!product().isOtherBuyOptionsVisible &amp;&amp; product().reviews.length > 0  &amp;&amp; product().currentListing.stockInformation.isInStock)}">
+                    <div class="contain-lg-5 contain-md-4 contain-sm-3">
+                        <span class="best-review-title">Beş Yıldız</span>
+                        <span class="best-review-date">13 Temmuz 2019, Cumartesi</span>
+                        <div class="best-review-ratings ratings-container">
+                            <span class="ratings">
+                                <span class="ratings active" style="width: 100%"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="best-review-description">
+                        <span data-bind="text: bestReviewText()">Çok iyi sayı. Okuyunuz.</span>
+                        <a style="display: none;" data-bind="click: bestReviewShowMore, visible: bestReviewTextMore()" href="#" class="see-more">devamını göster</a>
+                        <a style="display: none;" data-bind="click: bestReviewShowLess, visible: bestReviewTextLess()" href="#" class="see-less">devamını gizle</a>
+                    </span>
+                    <div class="reviewPartBottom">
+                        <span class="userNameOfReview">H***** G***** (49) BORNOVA - İzmir</span>
+                        <a class="allReviews" href="/tuhaf-dergi-sayi-28-temmuz-2019-p-HBV00000LEU9F-yorumlari">
+                            Tüm Yorumlar (2)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="merchantList" data-bind="visible : product().isOtherBuyOptionsVisible" style="">
+                <div class="other-sellers">
+                    <div class="title-area">
+                        <span class="otherBuyOptions">Diğer Satıcılar - </span>
+                        <a href="javascript:;" class="optionsLength" data-bind="tab: { content: '#tabMerchant', options: { activeClass: 'expanded' } }, click: showAllMerchants">
+                            Tümü (<!-- ko text: product().listings.length -->2<!-- /ko -->)
+                        </a>
+                        <i class="help" data-bind="click: showInfo">
+                            <div class="tooltip-info" data-bind="css: {'active': isTooltipInfoVisible}">
+                                <div class="criteria">
+                                    <p>
+                                        Diğer satıcılar, <a href="javascript:">Hepsiburada.com</a> bünyesinde satış yapan diğer firmaları ve satış fiyatlarını gösterir.
+                                    </p>
+                                </div>
+                            </div>
+                        </i>
+                    </div>
+                    <div class="marketplace-list">
+                        <table>
+                            <tbody>
+                                <!-- ko foreach: topTwoListings() -->
+                                <tr data-bind="click: $parent.goToMerchant.bind($parent, true)">
+                                    <td class="shipping-and-campaigns">
+                                        <div class="merchant-info">
+                                            <a rel="nofollow" class="merchantStore small" href="/magaza/dergiyurdu" data-bind="click: function() { return true;}, clickBubble: false, attr: {href : isHepsiburadaProduct? &quot;javascript:;&quot; : merchantPageUrl}, text: merchantName, css: {hepsiburada: isHepsiburadaProduct, small: merchantRatingSummary.lifeTimeRating > 0}">DERGİYURDU</a>
+                                            <!-- ko if: merchantRatingSummary !== null -->
+                                            <!-- ko if: merchantRatingSummary.lifeTimeRating <= 10 && merchantRatingSummary.lifeTimeRating > 0 -->
+                                            <a href="/magaza/dergiyurdu" class="merchant-rating-top" title="Satıcı Puanı" data-bind="click: function() { return true;}, clickBubble: false, attr: {href : isHepsiburadaProduct? 'javascript:;' : merchantPageUrl}">
+                                                <span class="merchant-rating lv-5" data-bind="text: merchantRatingSummary.lifeTimeRating.toFixed(1).toString().replace('.',','), css: merchantRatingSummary.cssClass">9,9</span>
+                                            </a>
+                                            <!--/ko-->
+                                            <!--/ko-->
+                                        </div>
+                                        <div class="shipment-content" data-bind="visible: !($parent.product().isOnlineLicenceProduct || $parent.product().nonTransferable) &amp;&amp; timer.showCounter &amp;&amp; !(isHepsiburadaProduct &amp;&amp; $parent.isPreOrderedProduct())">
+                                            <div data-bind="visible: timer.isVisible" style="">
+                                                <b style="" class="hour" data-bind="text: timer.clock().hours + ' saat ', visible: timer.clock().hours > 0">19 saat </b>
+                                                <b class="minute" data-bind="text: timer.clock().minutes">45</b>
+                                            </div>
+                                            <span data-bind="html: timer.dueText"><b>dakika</b> içinde sipariş verirseniz <b>yarın</b> kargoda</span>
+                                        </div>
+                                        <div style="display: none;" class="shipment-content" data-bind="visible: !($parent.product().isOnlineLicenceProduct || $parent.product().nonTransferable) &amp;&amp; isHepsiburadaProduct &amp;&amp; $parent.isPreOrderedProduct()">
+                                            <div>
+                                                <b data-bind="text: $parent.inStockDateForHb()"></b> tarihinde stoklarda olacaktır.
+                                            </div>
+                                        </div>
+                                        <!-- ko foreach: selectiveCampaigns -->
+                                        <div class="campaigns-text">
+                                            <span data-bind="text: $data.campaignType == 4 ? $data.conditionText : $data.campaignText">50 TL ve üzeri alışverişlerde kargo bedava!</span>
+                                        </div>
+                                        <!--/ko-->
+                                        <span style="display: none;" class="todays-delivery-text" data-bind="visible: todaysDeliveryCity">
+                                            <b data-bind="text: todaysDeliveryCity"></b> iline bugün teslimat seçeneği
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="price-text" data-bind="text: topTwoLastPrice">11,90 TL</span>
+                                        <div class="unit-price-container" data-bind="if: unitPriceText"></div>
+                                    </td>
+                                    <td class="form-area">
+                                        <div class="addToCart">
+                                            <form method="POST" action="/ShoppingCart/AddToCart" data-bind="submit: $parent.lineItemForm.checkSuggestData.bind($parent, $parent.productRecommendation.productModel), notification: $parent.lineItemForm.addToCartMessage" data-success="Ürün başarılı bir şekilde sepete eklenmiştir." data-fail="Ürün sepete eklenememiştir." data-davincilocation="Othersellers">
+                                                <input value="871d165c-51d7-441a-aa6e-c25d9d67348e" id="listIdInput" data-bind="value: listingId" name="listingId" type="hidden">
+                                                <input value="ad138572-c920-4b72-b81f-579d13bc5a57" data-bind="value: merchantId" name="merchantId" type="hidden">
+                                                <input value="HBV00000LEU9F" name="sku" data-bind="value: $parent.product().sku" type="hidden">
+                                                <input value="HB00000LEU9E" name="productId" data-bind="value: $parent.product().productId" type="hidden">
+                                                <input value="application/json" name="contentType" data-bind="value: $parent.lineItemForm.contentType" disabled="disabled" type="hidden">
+                                                <input value="json" name="dataType" data-bind="value: $parent.lineItemForm.dataType" disabled="disabled" type="hidden">
+                                                <input name="checkoutType" value="4" disabled="disabled" data-bind="value: isHepsiburadaProduct ? (hepsiburadaAsMerchant ? 4 : 0) : 4" type="hidden">
+                                                <input value="11,90 TL" name="vatExcludedPrice" data-bind="value: vatExcludedPriceText" disabled="disabled" type="hidden">
+                                                <input value="Kitap" name="catalogName" data-bind="value: $parent.lineItemForm.catalog" disabled="disabled" type="hidden">
+                                                <input value="DERGİYURDU" name="merchantName" data-bind="value: merchantName" disabled="disabled" type="hidden">
+                                                <input value="11,90" name="listingPrice" data-bind="value: sortPriceText" disabled="disabled" type="hidden">
+                                                <input name="location" value="2" data-bind="value: 2" disabled="disabled" type="hidden">
+                                                <input value="false" name="isPopupRecommendationAvailable" data-bind="value: $parent.productRecommendation.isPopupRecommendationAvailable" disabled="disabled" type="hidden">
+                                                <button data-bind="click: function() { return true;}, clickBubble: false" class="add-to-basket button small">
+                                                    <span data-bind="text: ((isHepsiburadaProduct &amp;&amp; $parent.isPreOrderedProduct())  ? 'Ön Sipariş Ver' : 'Sepete Ekle')  ">Sepete Ekle</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ko-->
+    </div>
+</div>
+

@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+}
+
+
+@using YeniProje.Models
+
+@model List<Kitap>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kitap Ekle
+                </div>
+                <div class="block-controls">
+
+                    <a href="/Kitap/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Kitap/Ekle" method="post" role="form">
+                        <div class="form-group">
+
+                            <label for="exampleInputEmail1"> Kitap Adı </label>
+                            <input id="Uad" class="form-control" placeholder="Kitap adı giriniz" style="width:unset;" type="text" name="ad" />
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Fiyat </label>
+                            <input id="Ufiyat" class="form-control" placeholder="Fiyat giriniz" style="width:unset;" type="text" name="fiyat" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Yayınevi</label>
+                            <select name="yayıneviID" class="form-control">
+                                @foreach (Yayınevi ted in ViewBag.Yayınevleri)
+                                {
+                                    <option value="@ted.yayıneviID">@ted.ad</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Yazar</label>
+                            <select name="yazarID" class="form-control">
+                                @foreach (Yazar ted in ViewBag.Yazar)
+                                {
+                                    <option value="@ted.yazarID">@ted.ad</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kategori</label>
+                            <select name="kategoriID" class="form-control">
+                                @foreach (Kategori ted in ViewBag.Kategori)
+                                {
+                                    <option value="@ted.kategoriID">@ted.ad</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Stok </label>
+                            <input id="Ustok" class="form-control" placeholder="Stok giriniz" style="width:unset;" type="text" name="stok" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Sayfa Sayısı </label>
+                            <input id="Usayfa"class="form-control" placeholder="Sayfa sayısı giriniz" style="width:unset;" type="text" name="sayfasayısı" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Yayın Tarihi </label>
+                            <input id="Uyayın" class="form-control" placeholder="Yayın tarihi giriniz" style="width:unset;" type="text" name="yayıntarihi" />
+                        </div>
+
+
+
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
